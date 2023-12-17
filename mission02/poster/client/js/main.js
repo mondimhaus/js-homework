@@ -9,8 +9,8 @@
 */
 
 const body = getNode("body");
-const imageName = getNode(".container h1");
-const navigation = getNode(".nav");
+const h1 = getNode(".container h1");
+const nav = getNode(".nav");
 const ul = getNode(".nav ul");
 const visualImage = getNode(".visual img");
 
@@ -35,25 +35,23 @@ function handleClick(e) {
   li.classList.add("is-active");
 }
 
-navigation.addEventListener("click", handleClick);
+nav.addEventListener("click", handleClick);
 
 // 배경색 변경
 function setBgColor(index) {
-  if() {
-    
-  }
-  body.style.background = `linear-gradient(to bottom, ${
-    data[index - 1].color[0]
-  },${data[index - 1].color[1]}`;
+  const colorA = data[index - 1].color[0];
+  const colorB = data[index - 1].color[1];
+
+  body.style.background = `linear-gradient(to bottom,${colorA},${colorB})`;
 }
 
-// 이미지 변경
+// 이미지 제목 변경
 function setImage(index) {
-  (imageName.textContent = data[index - 1].name) &&
-    (visualImage.alt = data[index - 1].alt);
+  h1.textContent = data[index - 1].name;
+  visualImage.alt = data[index - 1].alt;
 }
 
-// 이름 텍스트 변경
+// 이미지 텍스트 변경
 function setNameText(index) {
   visualImage.src = `./assets/${data[index - 1].name}.jpeg`;
 }
